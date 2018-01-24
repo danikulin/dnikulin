@@ -16,4 +16,12 @@ package ru.job4j;
 		public static void main (String [] args) {
 			System.out.println ("Hello, World!");
 		}  
+		/**
+     * Method echo.
+     * @param name nikulin.
+     * @return Echo plus nikulin.
+     */
+		public String echo (String Name){
+			return "Echo, echo, echo : " + Name;
+		}
 	}
