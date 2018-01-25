@@ -13,15 +13,15 @@ package ru.job4j;
 	 * Вывод строки в консоль.
      * @param args - args.
      */
-		public static void main (String [] args) {
-			System.out.println ("Hello, World!");
+		public static void main(String[] args) {
+			System.out.println("Hello, World!");
 		}  
 		/**
      * Method echo.
      * @param name nikulin.
      * @return Echo plus nikulin.
      */
-		public String echo (String Name){
-			return "Echo, echo, echo : " + Name;
+		public String echo(String name) {
+			return "Echo, echo, echo : " + name;
 		}
 	}
