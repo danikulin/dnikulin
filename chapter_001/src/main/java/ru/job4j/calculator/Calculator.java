@@ -10,7 +10,7 @@ public class Calculator {
     private double result;
 
     /**
-     * Метод сложения.
+     * Метод сложение.
      * @param first первый аргумент.
      * @param second второй аргумент.
      */
@@ -18,7 +18,7 @@ public class Calculator {
         this.result = first + second;
     }
     /**
-     * Метод вычетания.
+     * Метод вычетание.
      * @param first первый аргумент.
      * @param second второй аргумент.
      */
@@ -26,7 +26,7 @@ public class Calculator {
         this.result = first - second;
     }
     /**
-     * Метод деления.
+     * Метод деление.
      * @param first первый аргумент.
      * @param second второй аргумент.
      */
@@ -34,7 +34,7 @@ public class Calculator {
         this.result = first / second;
     }
     /**
-     * Метод умножения.
+     * Метод умножение.
      * @param first первый аргумент.
      * @param second второй аргумент.
      */
