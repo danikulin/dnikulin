@@ -44,9 +44,6 @@ public class Triangle {
      * Проверяет можно ли построить треугольник abc.
      */
     public boolean exist(double ab, double ac, double bc) {
-        if (ab + bc > ac & ab + ac > bc & bc + ac > ab) {
-            return true;
-        }
-        return false;
+             return (ab + bc > ac & ab + ac > bc & bc + ac > ab);
     }
 }
