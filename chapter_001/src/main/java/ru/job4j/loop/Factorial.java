@@ -14,13 +14,10 @@ public class Factorial {
      */
     public int calc(int n) {
         int f = 1;
-        if (n == 0) {
-            f = 1;
-        } else {
-            for (int index = 1; index <= n; index++) {
-                f = f * index;
-            }
+        for (int index = 1; index <= n; index++) {
+            f = f * index;
         }
         return f;
     }
+
 }
