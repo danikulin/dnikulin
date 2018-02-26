@@ -1,4 +1,6 @@
 package ru.job4j.loop;
+
+import java.util.function.BiPredicate;
 /**
  * Paint.
  *
@@ -13,17 +15,10 @@ public class Paint {
      * @param height высота пирамиды.
      */
     public String rightTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        int width = height;
-        for (int range = 0; range != height; range++) {
-            for (int column = 0; column != width; column++) {
-                if (column <= range) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            } screen.append(System.lineSeparator());
-        } return screen.toString();
+        return loopBy(
+                height,
+                height,
+                (range, column) -> range >= column);
     }
     /**
      * Метод leftTrl.
@@ -31,17 +26,10 @@ public class Paint {
      * @param height высота пирамиды.
      */
     public String leftTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        int width = height;
-        for (int range = 0; range != height; range++) {
-            for (int column = 0; column != width; column++) {
-                if (range >= width - column - 1) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            } screen.append(System.lineSeparator());
-        } return screen.toString();
+        return loopBy(
+                height,
+                height,
+                (range, column) -> range >= height - column - 1);
     }
     /**
      * Метод piramid.
@@ -49,11 +37,23 @@ public class Paint {
      * @param h высота пирамиды.
      */
     public String piramid(int h) {
+        return loopBy(
+                h,
+                2 * h - 1,
+                (range, column) -> range >= h - column - 1 && range + h - 1 >= column);
+    }
+    /**
+     * Метод loopBy.
+     * Рисует правую, левую и всю пирамиду в зависимости от входящих параметров.
+     * @param height высота пирамиды.
+     * @param width ширина пирамиды.
+     * @param predict условие для построения.
+     */
+    public String loopBy(int height, int width, BiPredicate<Integer, Integer> predict) {
         StringBuilder screen = new StringBuilder();
-        int widts = h * 2 - 1;
-        for (int range = 0; range != h; range++) {
-            for (int column = 0; column != widts; column++) {
-                if (range >= h - column - 1 && range + h - 1 >= column) {
+        for (int range = 0; range != height; range++) {
+            for (int column = 0; column != width; column++) {
+                if (predict.test(range, column)) {
                     screen.append("^");
                 } else {
                     screen.append(" ");
@@ -61,5 +61,4 @@ public class Paint {
             } screen.append(System.lineSeparator());
         } return screen.toString();
     }
-
 }
