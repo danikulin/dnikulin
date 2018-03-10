@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
  * Test.
  *
  * @author Dmitriy Nikulin (nikos-dima@mail.ru)
- * @version 1.1
+ * @version 1.2
  * @since 08.03.2018
  */
 public class BubbleSortTest {
