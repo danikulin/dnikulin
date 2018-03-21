@@ -5,7 +5,7 @@ package ru.job4j;
  *
  * @author Dmitriy Nikulin (nikos-dima@mail.ru)
  * @version $Id$
- * @since 0.2
+ * @since 0.3
  */
 	public class Calculate {
 		/**
