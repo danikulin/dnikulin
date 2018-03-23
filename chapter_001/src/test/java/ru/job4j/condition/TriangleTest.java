@@ -1,5 +1,4 @@
 package ru.job4j.condition;
-
 import org.junit.Test;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
@@ -11,6 +10,10 @@ import static org.junit.Assert.assertThat;
  * @since 08.02.2018
  */
 public class TriangleTest {
+    /**
+     * Test area.
+     * Проверяет вычисление площади треугольника построенного на заданных точках.
+     */
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
         Point a = new Point(1, 4);

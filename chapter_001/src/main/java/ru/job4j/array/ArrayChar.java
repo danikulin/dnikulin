@@ -1,11 +1,16 @@
 package ru.job4j.array;
-
 /**
- * Обертка над строкой.
+ * ArrayConteins.
+ *
+ * @author Dmitriy Nikulin (nikos-dima@mail.ru)
+ * @version 1.1
+ * @since 22.03.2018
  */
 public class ArrayChar {
     private char[] data;
-
+    /**
+     * Переводит слово в массив.
+     */
     public ArrayChar(String line) {
         this.data = line.toCharArray();
     }

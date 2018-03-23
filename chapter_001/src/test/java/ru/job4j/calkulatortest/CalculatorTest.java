@@ -1,5 +1,4 @@
-package ru.job4j.calculatortest;
-
+package ru.job4j.calkulatortest;
 import org.junit.Test;
 import ru.job4j.calculator.Calculator;
 

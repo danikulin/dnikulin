@@ -1,6 +1,6 @@
 package ru.job4j.loop;
 /**
- * Counter.
+ * Factorial.
  *
  * @author Dmitriy Nikulin (nikos-dima@mail.ru)
  * @version 1
@@ -19,5 +19,4 @@ public class Factorial {
         }
         return f;
     }
-
 }

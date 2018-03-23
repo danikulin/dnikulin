@@ -1,5 +1,4 @@
 package ru.job4j.loop;
-
 import java.util.function.BiPredicate;
 /**
  * Paint.

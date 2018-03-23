@@ -8,7 +8,6 @@ package ru.job4j.calculator;
  */
 public class Calculator {
     private double result;
-
     /**
      * Метод сложение.
      * @param first первый аргумент.

@@ -1,9 +1,7 @@
 package ru.job4j.condition;
-
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 /**
  * Test.
  *
@@ -12,6 +10,10 @@ import static org.junit.Assert.assertThat;
  * @since 06.02.2018
  */
 public class DummyBotTest {
+    /**
+     * Test answer1.
+     * Проверяет ответ на "Привет, Бот"
+     */
     @Test
     public void whenGreetBot() {
         DummyBot bot = new DummyBot();
@@ -20,7 +22,10 @@ public class DummyBotTest {
                 is("Привет, Умник")
         );
     }
-
+    /**
+     * Test answer2.
+     * Проверяет ответ на "Пока"
+     */
     @Test
     public void whenByuBot() {
         DummyBot bot = new DummyBot();
@@ -29,7 +34,10 @@ public class DummyBotTest {
                 is("До скорой встречи")
         );
     }
-
+    /**
+     * Test answer3.
+     * Проверяет ответ на незнакомый боту вопрос.
+     */
     @Test
     public void whenUnknownBot() {
         DummyBot bot = new DummyBot();
