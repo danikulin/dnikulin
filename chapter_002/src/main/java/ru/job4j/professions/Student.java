@@ -3,14 +3,11 @@ package ru.job4j.professions;
  * Student.
  *
  * @author Dmitriy Nikulin (nikos-dima@mail.ru)
- * @version 1.1
- * @since 26.03.2018
+ * @version 1.2
+ * @since 27.03.2018
  */
-public class Student extends Teacher {
-    public Student() {
-        this.name = "Jon";
-    }
-    Teacher techer = new Teacher();
-    String nametecher = techer.getName();
-    String ball = techer.teach(name);
+public class Student {
+    Teacher techer = new Teacher("name");
+    String name = techer.getName();
+    String zachet = techer.teach();
 }

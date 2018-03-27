@@ -3,8 +3,8 @@ package ru.job4j.professions;
         * Profession
         *
         * @author Dmitriy Nikulin (nikos-dima@mail.ru)
-        * @version 1.1
-        * @since 26.03.2018
+        * @version 1.2
+        * @since 27.03.2018
         */
 public class Profession {
     public String name;
