@@ -57,7 +57,7 @@ public class Tracker {
                 for (int j = i; j != 0; j--) {
                     items[j] = items[j - 1];
                 }
-                System.arraycopy(items, 1, items, 0, 99);
+                System.arraycopy(items, 1, items, 0, items.length - 1);
             }
         }
     }
