@@ -3,7 +3,7 @@ package ru.job4j.psevdo;
  * Paint.
  *
  * @author Dmitriy Nikulin (nikos-dima@mail.ru)
- * @version 1.1
+ * @version 1.2
  * @since 14.04.2018
  */
 public class Paint {
