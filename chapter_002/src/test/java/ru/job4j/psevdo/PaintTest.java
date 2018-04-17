@@ -1,4 +1,6 @@
 package ru.job4j.psevdo;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,15 +14,32 @@ import static org.junit.Assert.assertThat;
  * @since 14.04.2018
  */
 public class PaintTest {
+    private final PrintStream stdout = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    /**
+     * loadOutput.
+     * Переводит вывод в консоль в байт массив перед началом теста.
+     */
+    @Before
+    public void loadOutput() {
+        System.out.println("Execute before metod");
+        System.setOut(new PrintStream(this.out));
+    }
+    /**
+     * backOutput.
+     * Возвращает вывод в консоль.
+     */
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("Execute after metod");
+    }
     /**
      * Test Paint.
      * Проверяет вывод квадрата в консоль.
      */
     @Test
     public void whenDrawSquare() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
         new Paint().draw(new Square());
         assertThat(new String(out.toByteArray()), is(new StringBuilder().append("+++++++")
                 .append(System.lineSeparator())
@@ -31,7 +50,6 @@ public class PaintTest {
                 .append("+++++++")
                 .append(System.lineSeparator())
                 .toString()));
-        System.setOut(stdout);
     }
     /**
      * Test Paint.
@@ -39,9 +57,6 @@ public class PaintTest {
      */
     @Test
     public void whenDrawTreangle() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
         new Paint().draw(new Treangle());
         assertThat(new String(out.toByteArray()), is((new StringBuilder().append("  +  ")
                 .append(System.lineSeparator())
@@ -50,6 +65,5 @@ public class PaintTest {
                 .append("+++++")
                 .append(System.lineSeparator())
                 .toString())));
-        System.setOut(stdout);
     }
 }
