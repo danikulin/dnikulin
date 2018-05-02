@@ -3,7 +3,7 @@ package ru.job4j.professions;
  * Doctor.
  *
  * @author Dmitriy Nikulin (nikos-dima@mail.ru)
- * @version 1.2
+ * @version 1.3
  * @since 27.03.2018
  */
 public class Doctor extends Profession {
