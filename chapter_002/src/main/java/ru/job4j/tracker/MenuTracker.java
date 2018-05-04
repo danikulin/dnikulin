@@ -59,6 +59,17 @@ public class MenuTracker {
         actions[6] = new Exit();
     }
     /**
+     * index.
+     * Определяет количество пунктов меню.
+     */
+    public int[] index() {
+        int[] rang = new int[actions.length];
+        for (int i = 0; i != actions.length; i++) {
+            rang[i] = i;
+        }
+        return rang;
+    }
+    /**
      * select.
      * Запускает выполнение выбранного действия.
      * @param key номер действия.

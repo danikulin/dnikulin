@@ -34,15 +34,12 @@ public class StartUI {
         do {
             System.out.println("Menu.");
             menu.show();
-            key = Integer.valueOf(this.input.ask("Выберете пункт меню: "));
-            if (key <= 6 && key >= 0) {
+            key = this.input.ask("Выберете пункт меню: ", menu.index());
             menu.select(key);
-            } else
-                System.out.println("Вы ввели несуществующий пункт меню.");
-        } while (key != 6);
+        } while (key != menu.index().length - 1);
     }
 
     public static void main(String[] args) {
-        new StartUI(new ConsolInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
