@@ -25,9 +25,9 @@ public class ValidateInput implements Input {
                 value = this.input.ask(question, rang);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("Вы ввели несуществующий пункт мею.");
+                System.out.println("Вы ввели несуществующий пункт меню.");
             } catch (MenuOutException moe) {
-                System.out.println("Вы ввели несуществующий пункт мею.");
+                System.out.println("Вы ввели несуществующий пункт меню.");
             }
         } while (invalid);
         return value;
