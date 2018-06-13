@@ -1,4 +1,5 @@
 package ru.job4j.chess;
+
 /**
  * Bishop.
  *
@@ -20,21 +21,22 @@ public class Bishop extends Figur {
      */
     public Cell[] way(Cell source, Cell dest) {
         Cell[] steps = new Cell[0];
-        if (Math.abs(dest.y - source.y) == Math.abs(dest.x - source.x)) {
+        int deltax = dest.x - source.x;
+        int deltay = dest.y - source.y;
+        if (Math.abs(deltay) == Math.abs(deltax)) {
             steps = new Cell[Math.abs(dest.x - source.x)];
             for (int i = 1; i <= steps.length; i++) {
-                for (Cell cell : Cell.values()
-                        ) {
-                    if (dest.x - source.x > 0 && dest.y - source.y > 0 && cell.x == source.x + i && cell.y == source.y + i) {
+                for (Cell cell : Cell.values()) {
+                    if (deltax > 0 && deltay > 0 && cell.x == source.x + i && cell.y == source.y + i) {
                         steps[i - 1] = cell;
                     }
-                    if (dest.x - source.x < 0 && dest.y - source.y > 0 && cell.x == source.x - i && cell.y == source.y + i) {
+                    if (deltax < 0 && deltay > 0 && cell.x == source.x - i && cell.y == source.y + i) {
                         steps[i - 1] = cell;
                     }
-                    if (dest.x - source.x > 0 && dest.y - source.y < 0 && cell.x == source.x + i && cell.y == source.y - i) {
+                    if (deltax > 0 && deltay < 0 && cell.x == source.x + i && cell.y == source.y - i) {
                         steps[i - 1] = cell;
                     }
-                    if (dest.x - source.x < 0 && dest.y - source.y < 0 && cell.x == source.x - i && cell.y == source.y - i) {
+                    if (deltax < 0 && deltay < 0 && cell.x == source.x - i && cell.y == source.y - i) {
                         steps[i - 1] = cell;
                     }
                 }
