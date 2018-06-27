@@ -25,19 +25,39 @@ public class Bishop extends Figur {
         int deltay = dest.y - source.y;
         if (Math.abs(deltay) == Math.abs(deltax)) {
             steps = new Cell[Math.abs(dest.x - source.x)];
-            for (int i = 1; i <= steps.length; i++) {
-                for (Cell cell : Cell.values()) {
-                    if (deltax > 0 && deltay > 0 && cell.x == source.x + i && cell.y == source.y + i) {
-                        steps[i - 1] = cell;
+            if (deltax > 0 && deltay > 0) {
+                for (int i = 1; i <= steps.length; i++) {
+                    for (Cell cell : Cell.values()) {
+                        if (cell.x == source.x + i && cell.y == source.y + i) {
+                            steps[i - 1] = cell;
+                        }
                     }
-                    if (deltax < 0 && deltay > 0 && cell.x == source.x - i && cell.y == source.y + i) {
-                        steps[i - 1] = cell;
+                }
+            }
+            if (deltax < 0 && deltay > 0) {
+                for (int i = 1; i <= steps.length; i++) {
+                    for (Cell cell : Cell.values()) {
+                        if (cell.x == source.x - i && cell.y == source.y + i) {
+                            steps[i - 1] = cell;
+                        }
                     }
-                    if (deltax > 0 && deltay < 0 && cell.x == source.x + i && cell.y == source.y - i) {
-                        steps[i - 1] = cell;
+                }
+            }
+            if (deltax > 0 && deltay < 0) {
+                for (int i = 1; i <= steps.length; i++) {
+                    for (Cell cell : Cell.values()) {
+                        if (cell.x == source.x + i && cell.y == source.y - i) {
+                            steps[i - 1] = cell;
+                        }
                     }
-                    if (deltax < 0 && deltay < 0 && cell.x == source.x - i && cell.y == source.y - i) {
-                        steps[i - 1] = cell;
+                }
+            }
+            if (deltax < 0 && deltay < 0) {
+                for (int i = 1; i <= steps.length; i++) {
+                    for (Cell cell : Cell.values()) {
+                        if (cell.x == source.x - i && cell.y == source.y - i) {
+                            steps[i - 1] = cell;
+                        }
                     }
                 }
             }
