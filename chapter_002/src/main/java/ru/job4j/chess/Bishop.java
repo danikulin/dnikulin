@@ -21,43 +21,38 @@ public class Bishop extends Figur {
      */
     public Cell[] way(Cell source, Cell dest) {
         Cell[] steps = new Cell[0];
+        int posx = source.x;
+        int posy = source.y;
         int deltax = dest.x - source.x;
         int deltay = dest.y - source.y;
         if (Math.abs(deltay) == Math.abs(deltax)) {
-            steps = new Cell[Math.abs(dest.x - source.x)];
-            if (deltax > 0 && deltay > 0) {
-                for (int i = 1; i <= steps.length; i++) {
-                    for (Cell cell : Cell.values()) {
-                        if (cell.x == source.x + i && cell.y == source.y + i) {
-                            steps[i - 1] = cell;
-                        }
-                    }
-                }
+            int xmove = 0;
+            if (deltax > 0) {
+                xmove = 1;
+            } else if (deltax < 0) {
+                xmove = -1;
             }
-            if (deltax < 0 && deltay > 0) {
-                for (int i = 1; i <= steps.length; i++) {
-                    for (Cell cell : Cell.values()) {
-                        if (cell.x == source.x - i && cell.y == source.y + i) {
-                            steps[i - 1] = cell;
-                        }
-                    }
-                }
+            int ymove = 0;
+            if (deltay > 0) {
+                ymove = 1;
+            } else if (deltay < 0) {
+                ymove = -1;
             }
-            if (deltax > 0 && deltay < 0) {
-                for (int i = 1; i <= steps.length; i++) {
-                    for (Cell cell : Cell.values()) {
-                        if (cell.x == source.x + i && cell.y == source.y - i) {
-                            steps[i - 1] = cell;
-                        }
-                    }
-                }
-            }
-            if (deltax < 0 && deltay < 0) {
-                for (int i = 1; i <= steps.length; i++) {
-                    for (Cell cell : Cell.values()) {
-                        if (cell.x == source.x - i && cell.y == source.y - i) {
-                            steps[i - 1] = cell;
-                        }
+            steps = new Cell[Math.abs(deltax) + 1];
+            /**
+             for (int i = 0; i <= steps.length - 1; i++) {
+             steps[i] = new Cell(posx, posy);
+             posx += xmove;
+             posy += ymove;
+             }
+             */
+            for (int i = 0; i <= steps.length - 1; i++) {
+                for (Cell cell : Cell.values()) {
+                    if (cell.x == posx && cell.y == posy) {
+                        steps[i] = cell;
+                        posx += xmove;
+                        posy += ymove;
+                        break;
                     }
                 }
             }
