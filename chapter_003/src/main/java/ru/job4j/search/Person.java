@@ -3,7 +3,7 @@ package ru.job4j.search;
  * Person.
  *
  * @author Dmitriy Nikulin (nikos-dima@mail.ru)
- * @version 1.1
+ * @version 1.2
  * @since 06.08.2018
  */
 public class Person {
