@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 /**
  * StartUITest.
@@ -86,7 +85,6 @@ public class StartUITest {
     public void whenUserFindItemByNameThenTrackerShowItemsWithThisName() {
         Tracker tracker = new Tracker();
         Item first = tracker.add(new Item("test1", "Desc1", 123L));
-        Item second = tracker.add(new Item("test2", "Desc2", 1234L));
         Item third = tracker.add(new Item("test1", "Desc1", 123L));
         Input input = new StubInput(new String[]{"5", third.getName(), "6"});
         new StartUI(input, tracker).init();
