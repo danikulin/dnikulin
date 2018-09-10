@@ -32,4 +32,9 @@ public class StubInput implements Input {
     public String ask(String question) {
         return this.value[position++];
     }
+
+    @Override
+    public int ask(String question, int[] rang) {
+        return Integer.parseInt(value[position++]);
+    }
 }
