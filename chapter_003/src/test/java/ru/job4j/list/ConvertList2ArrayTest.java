@@ -1,5 +1,6 @@
 package ru.job4j.list;
 import org.junit.Test;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -57,16 +58,17 @@ public class ConvertList2ArrayTest {
         };
         assertThat(result, is(expect));
     }
+    /**
+     * Test convert.
+     * Проверяет перевод листа из массив в лист из значений.
+     */
     @Test
-    public void when3ArraysThen9() {
+    public void when2ArraysThen9() {
         ConvertList2Array list = new ConvertList2Array();
-        List<int[]> input = {{}}
-        List<Integer> result = list.convert(Arrays.asList(1, 2, 3, 4, 5, 6), 3);
-        int[][] expect = {
-                {1, 2},
-                {3, 4},
-                {5, 6}
-        };
-        assertThat(result, is(expect));
+        List<int[]> input = new ArrayList<>();
+        input.add(new int[] {1, 2, 3});
+        input.add(new int[] {4, 5, 6, 7, 8, 9});
+        List<Integer> result = list.convert(input);
+        assertThat(result, is(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)));
     }
 }

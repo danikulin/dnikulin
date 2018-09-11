@@ -41,8 +41,12 @@ public class ConvertList2Array {
      * @return лист содержащий все значения массивов входящего листа.
      */
     public List<Integer> convert(List<int[]> list) {
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
+        for (int[] array : list) {
+            for (int value : array) {
+                result.add(value);
+            }
+        }
         return result;
-
     }
 }
