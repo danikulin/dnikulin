@@ -1,11 +1,6 @@
 package ru.job4j.tracker;
-/**
- * MenuTracker
- *
- * @author Dmitriy Nikulin (nikos-dima@mail.ru)
- * @version 1.1
- * @since 25.04.2018
- */
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Exit
  * Внешний класс для выхода из программы.
@@ -17,6 +12,13 @@ class Exit extends BaseAction {
     public void execute(Input input, Tracker tracker) {
     }
 }
+/**
+ * MenuTracker
+ *
+ * @author Dmitriy Nikulin (nikos-dima@mail.ru)
+ * @version 1.1
+ * @since 25.04.2018
+ */
 public class MenuTracker {
     /**
      * Получение данных от пользователя.
@@ -29,8 +31,7 @@ public class MenuTracker {
     /**
      * Массив для действий пользователя.
      */
-    private UserAction[] actions = new UserAction[7];
-    int position = 0;
+    private List<UserAction> actions = new ArrayList<>();
     /**
      * Конструктор MenuTracker.
      *
@@ -46,21 +47,21 @@ public class MenuTracker {
      * Инициализирует массив действий пользователя.
      */
     public void feelAction() {
-        actions[position++] = this.new AddItem(0, "Add new item");
-        actions[position++] = this.new ShowAll(1, "Show all items");
-        actions[position++] = new MenuTracker.EditItem(2, "Edit item");
-        actions[position++] = this.new DelItem(3, "Delete item");
-        actions[position++] = this.new FindItemID(4, "Find item by Id");
-        actions[position++] = this.new FindItemName(5, "Find items by name");
-        actions[position++] = new Exit(6, "Exit program");
+        actions.add(this.new AddItem(0, "Add new item"));
+        actions.add(this.new ShowAll(1, "Show all items"));
+        actions.add(new MenuTracker.EditItem(2, "Edit item"));
+        actions.add(this.new DelItem(3, "Delete item"));
+        actions.add(this.new FindItemID(4, "Find item by Id"));
+        actions.add(this.new FindItemName(5, "Find items by name"));
+        actions.add(new Exit(6, "Exit program"));
     }
     /**
      * index.
      * Определяет количество пунктов меню.
      */
     public int[] index() {
-        int[] rang = new int[actions.length];
-        for (int i = 0; i != actions.length; i++) {
+        int[] rang = new int[actions.size()];
+        for (int i = 0; i != actions.size(); i++) {
             rang[i] = i;
         }
         return rang;
@@ -72,18 +73,15 @@ public class MenuTracker {
      * @param key номер действия.
      */
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
-
     /**
      * show
      * Выводит меню в консоль.
      */
     public void show() {
         for (UserAction action : this.actions) {
-            if (action != null) {
-                System.out.println(action.info());
-            }
+            System.out.println(action.info());
         }
     }
     /**
@@ -114,15 +112,13 @@ public class MenuTracker {
         }
 
         public void execute(Input input, Tracker tracker) {
-            Item[] items = tracker.findAll();
+            List<Item> items = tracker.findAll();
             System.out.println("Список заявок");
-            if (items.length == 0) {
+            if (items.isEmpty()) {
                 System.out.println("Список заявок пуст");
             }
             for (Item item : items) {
-                if (item != null) {
-                    System.out.println(item.getName() + " Id: " + item.getId() + " Desc: " + item.getDesc());
-                }
+                System.out.println(item.getName() + " Id: " + item.getId() + " Desc: " + item.getDesc());
             }
         }
     }
@@ -199,14 +195,13 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println("Поиск заявки по названию.");
             String name = input.ask("Введите название искомой заявки : ");
-            Item[] items = tracker.findByName(name);
+            List<Item> items = tracker.findByName(name);
             System.out.println("Список заявок: ");
-            if (items.length != 0) {
-                for (Item item : items) {
-                    if (item != null) {
-                        System.out.println(item.getName() + " Id: " + item.getId() + " Desc: " + item.getDesc());
-                    }
-                }
+            if (items.isEmpty()) {
+                System.out.println("Заявки с таким названием не найдено");
+            }
+            for (Item item : items) {
+                System.out.println(item.getName() + " Id: " + item.getId() + " Desc: " + item.getDesc());
             }
         }
     }
