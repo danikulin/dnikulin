@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.*;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 /**
@@ -30,7 +32,7 @@ public class ValidateInputTest {
     @Test
     public void whenInvalidInput1() {
         ValidateInput input = new ValidateInput(new StubInput(new String[] {"invalid", "1"}));
-        input.ask("Выберете пункт меню: ", new int[] {1});
+        input.ask("Выберете пункт меню: ", Arrays.asList(1));
         assertThat(
                 this.mem.toString(),
                 is(

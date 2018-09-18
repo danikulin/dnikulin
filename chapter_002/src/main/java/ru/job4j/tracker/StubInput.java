@@ -1,4 +1,7 @@
 package ru.job4j.tracker;
+
+import java.util.List;
+
 /**
  * StubInput.
  *
@@ -34,7 +37,7 @@ public class StubInput implements Input {
     }
 
     @Override
-    public int ask(String question, int[] rang) {
+    public int ask(String question, List<Integer> rang) {
         return Integer.parseInt(value[position++]);
     }
 }

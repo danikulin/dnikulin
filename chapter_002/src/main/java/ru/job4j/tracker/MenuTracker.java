@@ -59,10 +59,10 @@ public class MenuTracker {
      * index.
      * Определяет количество пунктов меню.
      */
-    public int[] index() {
-        int[] rang = new int[actions.size()];
+    public List<Integer> index() {
+        List<Integer> rang = new ArrayList<>();
         for (int i = 0; i != actions.size(); i++) {
-            rang[i] = i;
+            rang.add(i);
         }
         return rang;
     }

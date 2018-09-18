@@ -1,4 +1,7 @@
 package ru.job4j.tracker;
+
+import java.util.List;
+
 /**
  * Input.
  *
@@ -8,6 +11,6 @@ package ru.job4j.tracker;
  */
 public interface Input {
     String ask(String question);
-    int ask(String question, int[] rang);
+    int ask(String question, List<Integer> rang);
 }
 
