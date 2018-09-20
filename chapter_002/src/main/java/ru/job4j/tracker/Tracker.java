@@ -40,9 +40,10 @@ public class Tracker {
      * @param item - заявка.
      */
     public void replace(String id, Item item) {
-        for (Item i : items) {
-            if (i.getId().equals(id)) {
-                items.set(items.indexOf(i), item);
+        for (int i = 0; i != items.size(); i++) {
+            if (items.get(i).getId().equals(id)) {
+                items.set(i, item);
+                break;
             }
         }
     }
@@ -52,9 +53,10 @@ public class Tracker {
      */
     public void delete(String id) {
         int index = -1;
-        for (Item i : items) {
-            if (i.getId().equals(id)) {
-                index = items.indexOf(i);
+        for (int i = 0; i != items.size(); i++) {
+            if (items.get(i).getId().equals(id)) {
+                index = i;
+                break;
             }
         }
         if (index != -1) {
