@@ -1,4 +1,6 @@
 package ru.job4j.sort;
+
+import java.util.*;
 /**
  * UserSort.
  *
@@ -6,11 +8,6 @@ package ru.job4j.sort;
  * @version 1.1
  * @since 24.09.2018
  */
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeSet;
-
 public class UserSort {
     /**
      * Метод sort.
@@ -19,17 +16,51 @@ public class UserSort {
      * @return TreeSet User отсортированных в порядке возростания по возрасту.
      */
     public TreeSet<User> sort(List<User> users) {
-        return new TreeSet<User>(users);
+        return new TreeSet<>(users);
+    }
+    /**
+     * Метод sortNameLengts.
+     * Сортирует входящий лист пользователей по длине имени.
+     * @param users входящий лист пользователей.
+     * @return лист пользователей отсортированных по длине имени
+     */
+    public List<User> sortNameLengts(List<User> users) {
+        users.sort(new SortNameLengts());
+        return  users;
+    }
+    /**
+     * Метод sortByAllFields.
+     * Сортирует входящий лист пользователей по имени в лексикографическом порядке, потом по возрасту.
+     * @param users входящий лист пользователей.
+     * @return лист пользователей отсортированных по имени в лексикографическом порядке и по возрасту.
+     */
+    public List<User> sortByAllFields(List<User> users) {
+        users.sort(new SortByAllFields());
+        return users;
     }
     public class SortNameLengts implements Comparator<User> {
-
+        /**
+         * Метод compare.
+         * Сравнивает двух пользователей по длине имени.
+         * @param o1 1-й пользователь.
+         * @param o2 2-й пользователь.
+         */
         @Override
         public int compare(User o1, User o2) {
-            return o1.getName().compareTo(o2.getName());
+            return Integer.compare(o1.getName().length(), o2.getName().length());
         }
     }
-    public void sortNameLengts(List<User> users) {
-        Comparator<User> snl = new SortNameLengts();
-        return new ArrayList<User>(users).sort(snl);
+    public class SortByAllFields implements Comparator<User> {
+        /**
+         * Метод compare.
+         * Сравнивает двух пользователей по имени и возрасту.
+         * @param o1 1-й пользователь.
+         * @param o2 2-й пользователь.
+         */
+        @Override
+        public int compare(User o1, User o2) {
+            int rst = o1.getName().compareTo(o2.getName());
+            return rst != 0 ? rst : Integer.compare(o1.getAge(), o2.getAge());
+        }
     }
 }
