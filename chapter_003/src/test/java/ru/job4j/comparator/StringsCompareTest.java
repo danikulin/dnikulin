@@ -17,7 +17,7 @@ public class StringsCompareTest {
      * Проверяет что результат сравнения равен 0 если строки равны.
      */
     @Test
-    public void whenStringsAreEqualThenZero () {
+    public void whenStringsAreEqualThenZero() {
         ListCompare compare = new ListCompare();
         int rst = compare.compare(
                 "Ivanov",
@@ -30,7 +30,7 @@ public class StringsCompareTest {
      * Проверяет что результат сравнения < 0 если первая строка меньше второй.
      */
     @Test
-    public void whenLeftLessThanRightResultShouldBeNegative () {
+    public void whenLeftLessThanRightResultShouldBeNegative() {
         ListCompare compare = new ListCompare();
         int rst = compare.compare(
                 "Ivanov",
@@ -43,7 +43,7 @@ public class StringsCompareTest {
      * Проверяет что результат сравнения > 0 если первая строка больше второй.
      */
     @Test
-    public void whenLeftGreaterThanRightResultShouldBePositive () {
+    public void whenLeftGreaterThanRightResultShouldBePositive() {
         ListCompare compare = new ListCompare();
         int rst = compare.compare(
                 "Petrov",
@@ -56,7 +56,7 @@ public class StringsCompareTest {
      * Проверяет что результат сравнения > 0 если первая строка больше второй.
      */
     @Test
-    public void secondCharOfLeftGreaterThanRightShouldBePositive(){
+    public void secondCharOfLeftGreaterThanRightShouldBePositive() {
         ListCompare compare = new ListCompare();
         int rst = compare.compare(
                 "Petrov",
@@ -69,7 +69,7 @@ public class StringsCompareTest {
      * Проверяет что результат сравнения < 0 если первая строка меньше второй.
      */
     @Test
-    public void secondCharOfLeftLessThanRightShouldBeNegative(){
+    public void secondCharOfLeftLessThanRightShouldBeNegative() {
         ListCompare compare = new ListCompare();
         int rst = compare.compare(
                 "Patrova",
