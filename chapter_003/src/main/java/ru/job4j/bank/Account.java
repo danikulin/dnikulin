@@ -1,25 +1,28 @@
 package ru.job4j.bank;
-
+/**
+ * Account.
+ *
+ * @author Dmitriy Nikulin (nikos-dima@mail.ru)
+ * @version 1.1
+ * @since 27.09.2018
+ */
 
 public class Account {
 
-    double values;
-    String reqs;
+    private double value;
+    private String requisites;
 
-    public Account(double values, String requisites) {
-        this.values = values;
-        this.reqs = requisites;
+    public Account(double value, String requisites) {
+        this.value = value;
+        this.requisites = requisites;
     }
-
     public double getValues() {
-        return this.values;
+        return this.value;
     }
-
-
-    public String getReqs () {
-        return this.reqs;
+    public String getRequisites () {
+        return this.requisites;
     }
-
+/**
     boolean transfer(Account destination, double amount) {
         boolean success = false;
         if (amount > 0 && amount < this.values && destination != null) {
@@ -52,4 +55,5 @@ public class Account {
     public int hashCode() {
         return this.reqs.hashCode();
     }
+ */
 }
